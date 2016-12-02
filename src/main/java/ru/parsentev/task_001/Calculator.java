@@ -3,6 +3,8 @@ package ru.parsentev.task_001;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//import java.lang.Math.*;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -11,28 +13,35 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class Calculator {
     private static final Logger log = getLogger(Calculator.class);
+    private double result = 0;
 
     public double getResult() {
-        throw new UnsupportedOperationException();
+        return result;
     }
 
     public void add(double first, double second) {
-        throw new UnsupportedOperationException();
+        result = first + second;
     }
 
     public void substract(double first, double second) {
-        throw new UnsupportedOperationException();
+        result = first - second;
     }
 
     public void multiple(double first, double second) {
-        throw new UnsupportedOperationException();
+        result = first * second;
     }
 
     public void div(double first, double second) {
-        throw new UnsupportedOperationException();
+        if (second == 0) {
+            throw new IllegalStateException();
+        }
+        else{
+            result = first / second;
+        }
+        //(second == 0) ? throw new IllegalStateException() : result = first / second;
     }
 
     public void expand(double first, double second) {
-        throw new UnsupportedOperationException();
+        result = Math.pow(first, second);
     }
 }

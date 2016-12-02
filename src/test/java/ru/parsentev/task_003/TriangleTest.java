@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class TriangleTest {
     @Test
     public void calculateArea() {
@@ -22,6 +22,9 @@ public class TriangleTest {
         Point third = new Point(2, 0);
         double result = new Triangle(first, second, third).area();
         assertThat(result, is(2d));
+
+        double resultTwo = new Triangle(new Point(0,1), new Point(0,0), new Point(5, 0)).area();
+        assertThat(resultTwo, is(2.5d));
     }
 
     @Test
