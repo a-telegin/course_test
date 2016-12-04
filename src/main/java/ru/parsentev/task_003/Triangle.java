@@ -4,6 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.parsentev.task_002.Point;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -47,14 +50,17 @@ public class Triangle {
     }
 
     public double area() {
-        //TODO area() to make it round the result
-
         double result = 0;
         if (exists()){
+            //Heron's formula
             double p = (sideA + sideB + sideC) / 2;
-            result = (double)Math.round(Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC)));
-            System.out.println(result);
-            //result = 0.5*sideA*sideC;
+            double areaD = Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
+
+            //turning double into BigDecimal to round it properly
+            BigDecimal areaBD = new BigDecimal(areaD, new MathContext(2));
+
+            //getting area back to double
+            result = areaBD.doubleValue();
         }else{
             throw new IllegalStateException();
         }
