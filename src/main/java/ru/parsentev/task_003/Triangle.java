@@ -39,6 +39,11 @@ public class Triangle {
         return pointFrom.distanceTo(pointTo);
     }
 
+    public double[] getSides(){
+        double[] sides = {sideA, sideB, sideC};
+        return sides;
+    }
+
     public boolean exists() {
         boolean result = false;
         if (((sideA + sideB) > sideC) &&

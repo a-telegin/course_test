@@ -5,6 +5,8 @@ import org.junit.Test;
 import ru.parsentev.task_002.Point;
 import ru.parsentev.task_004.IsoscelesTriangle;
 
+import java.util.Arrays;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -14,7 +16,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class RightTriangleTest {
     @Test
     public void checkExists() {

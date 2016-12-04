@@ -7,10 +7,10 @@ import ru.parsentev.task_002.Point;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * TODO: comment
+ * Class is used to create a square by four points.
  *
- * @author parsentev
- * @since 28.07.2016
+ * @author a-telegin
+ * @since 04.12.2016
  */
 public class Square {
     private static final Logger log = getLogger(Square.class);
@@ -20,14 +20,35 @@ public class Square {
     private final Point third;
     private final Point fourth;
 
+    private final double sideA;
+    private final double sideB;
+    private final double sideC;
+    private final double sideD;
+
     public Square(final Point first, final Point second, final Point third, final Point fourth) {
         this.first = first;
         this.second = second;
         this.third = third;
         this.fourth = fourth;
+
+        this.sideA = setSide(first, second);
+        this.sideB = setSide(second, third);
+        this.sideC = setSide(third, fourth);
+        this.sideD = setSide(first, fourth);
+    }
+
+    public double setSide(final Point pointFrom, final Point pointTo){
+        return pointFrom.distanceTo(pointTo);
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        boolean result = false;
+        if ((sideA * sideB * sideC * sideD != 0) &&
+                (sideA == sideB) &&
+                (sideC == sideD) &&
+                (sideA == sideC)){
+            result = true;
+        }
+        return result;
     }
 }
