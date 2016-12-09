@@ -19,6 +19,23 @@ public class Brackets {
     }
 
     public boolean isCorrect() {
-        throw new UnsupportedOperationException();
+        final char OPEN_PAR = '(';
+        final char CLOSE_PAR = ')';
+        int counter = 0;
+
+        for (int i = 0; i < line.length() ; i++) {
+            if (line.charAt(i) == OPEN_PAR){
+                counter++;
+            }
+            else if (line.charAt(i) == CLOSE_PAR){
+                if (counter == 0){
+                    counter = -1;
+                    break;
+                }
+                else counter--;
+            }
+        }
+
+        return (counter == 0);
     }
 }

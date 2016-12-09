@@ -16,12 +16,16 @@ import static org.hamcrest.core.Is.is;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class PrimesTest {
     @Test
     public void calc() {
         Primes primes = new Primes(3);
         List<Integer> result = primes.calc();
         assertThat(result, is(asList(1, 2, 3)));
+
+        /*Primes primesOther = new Primes(17);
+        List<Integer> resultOther = primesOther.calc();
+        assertThat(resultOther, is(asList(1, 2, 3, 5, 7, 11, 13, 17)));*/
     }
 }

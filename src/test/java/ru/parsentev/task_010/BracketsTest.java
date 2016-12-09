@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class BracketsTest {
     @Test
     public void valid() {
@@ -24,6 +24,13 @@ public class BracketsTest {
     @Test
     public void inValid() {
         Brackets brackets = new Brackets("(");
+        boolean result = brackets.isCorrect();
+        assertThat(result, is(false));
+    }
+
+    @Test
+    public void closeFirst() {
+        Brackets brackets = new Brackets(")(");
         boolean result = brackets.isCorrect();
         assertThat(result, is(false));
     }
