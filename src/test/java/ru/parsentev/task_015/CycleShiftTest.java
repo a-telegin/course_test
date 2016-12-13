@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class CycleShiftTest {
 
     @Test
@@ -28,5 +28,19 @@ public class CycleShiftTest {
         CycleShift cycle = new CycleShift(new int[] {1});
         int[] result = cycle.shift(2);
         assertThat(result, is(new int[] {1}));
+    }
+
+    @Test
+    public void two() {
+        CycleShift cycle = new CycleShift(new int[] {1 , 0});
+        int[] result = cycle.shift(1);
+        assertThat(result, is(new int[] {0 , 1}));
+    }
+
+    @Test
+    public void empty() {
+        CycleShift cycle = new CycleShift(new int[] {});
+        int[] result = cycle.shift(1);
+        assertThat(result, is(new int[] {}));
     }
 }
