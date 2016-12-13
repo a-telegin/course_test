@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class MonoArrayTest {
     @Test
     public void mono() {
@@ -23,6 +23,34 @@ public class MonoArrayTest {
     @Test
     public void notMono() {
         MonoArray array = new MonoArray(new int[] {0, 1, 1, 1, 0});
+        boolean result = array.exists();
+        assertThat(result, is(false));
+    }
+
+    @Test
+    public void firstOdd() {
+        MonoArray array = new MonoArray(new int[] {0, 1, 1, 1, 1});
+        boolean result = array.exists();
+        assertThat(result, is(false));
+    }
+
+    @Test
+    public void allZeroes() {
+        MonoArray array = new MonoArray(new int[] {0, 0, 0, 0, 0});
+        boolean result = array.exists();
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void onlySingleElement() {
+        MonoArray array = new MonoArray(new int[] {8});
+        boolean result = array.exists();
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void empty() {
+        MonoArray array = new MonoArray(new int[] {});
         boolean result = array.exists();
         assertThat(result, is(false));
     }

@@ -20,6 +20,26 @@ public class SequenceArray {
     }
 
     public boolean containsOneSequence() {
-        throw new UnsupportedOperationException();
+        final int SEQUENCE_LENGTH = 3;
+        boolean foundSequence = false;
+        if (values.length == 0){
+            return false;
+        }
+
+        int onesCounter = 0;
+
+        for (int i = 0; i < values.length; i++){
+            if (values[i] == 0) {
+                onesCounter = 0;
+            }
+            else {
+                onesCounter++;
+                if (onesCounter >= SEQUENCE_LENGTH){
+                    foundSequence = true;
+                    break;
+                }
+            }
+        }
+        return foundSequence;
     }
 }

@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * TODO: comment
+ * Class has a method containsOnlyOnes() which checks if all the elements of 1-D array values are ones.
  *
  * @author parsentev
  * @since 28.07.2016
@@ -19,6 +19,16 @@ public class ArrayContainsOne {
     }
 
     public boolean containsOnlyOne() {
-        throw new UnsupportedOperationException();
+        boolean onlyOnes = true;
+        if (values.length == 0) {
+            return false;
+        }
+        for (int element : values) {
+            if (element != 1) {
+                onlyOnes = false;
+                break;
+            }
+        }
+        return onlyOnes;
     }
 }

@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class ArrayContainsOneTest {
     @Test
     public void onlyOne() {
@@ -23,6 +23,13 @@ public class ArrayContainsOneTest {
     @Test
     public void notOnlyOne() {
         ArrayContainsOne array = new ArrayContainsOne(new int[] {1, 1, 0});
+        boolean result = array.containsOnlyOne();
+        assertThat(result, is(false));
+    }
+
+    @Test
+    public void ifEmpty() {
+        ArrayContainsOne array = new ArrayContainsOne(new int[] {});
         boolean result = array.containsOnlyOne();
         assertThat(result, is(false));
     }
